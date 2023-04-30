@@ -4,6 +4,7 @@ import Profile from "./pages/profile/Profile";
 import { Redirect, Route, Routes } from "react-router-dom";
 import Registration from "./pages/registration/Registration";
 import Login from "./pages/login/Login";
+import Course from "./pages/Course/Course";
 // import Test from "./pages/test/test";
 // import Face from "./pages/face/Face";
 //history
@@ -26,6 +27,7 @@ function App() {
           }
         />
         <Route path="/registration" element={<Registration />} />
+        <Route path="/course" element={<Course />} />
         <Route
           path="login"
           element={
