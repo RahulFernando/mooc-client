@@ -1,0 +1,11 @@
+.postPaneBox{
+    
+    flex: 7;     
+    height: calc(100vh - 50px);
+    overflow-y: scroll;
+}
+
+
+.leftPaneContainer{
+padding: 20px;
+}

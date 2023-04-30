@@ -1,0 +1,29 @@
+
+
+.frame {
+    background-color: #9A616D;
+    padding-top: 100px;
+  }
+
+  .login-box{
+    width: 800px;
+    height: 600px;
+    margin: auto;
+    
+  }
+  .errmsg {
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+    
+  }
+
+  .offscreen {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    
+  }

@@ -1,0 +1,67 @@
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+    }
+    .card-registration .select-arrow {
+    top: 13px;
+    }
+
+    .img-fluid{
+
+        border-top-left-radius: 25rem;
+        border-top-left-radius: 25rem;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+
+
+
+
+.instructions > svg {
+	margin-right: 0.25rem;
+}
+
+.offscreen {
+	position: absolute;
+	left: -9999px;
+}
+
+
+
+
+
+.hide {
+	display: none;
+}
+
+.valid {
+	color: limegreen;
+	margin-left: 0.25rem;
+}
+
+.invalid {
+	color: red;
+	margin-left: 0.25rem;
+}
+
+.errmsg {
+	background-color: lightpink;
+	color: firebrick;
+	font-weight: bold;
+	padding: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.line {
+	display: inline-block;
+}
