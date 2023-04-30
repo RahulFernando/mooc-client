@@ -9,14 +9,31 @@ import Login from "./pages/login/Login";
 //history
 import { history } from "./helpers/history";
 
+import AuthGuard from "./guards/AuthGuard";
+import GuestGuard from "./guards/GuestGuard";
+
 function App() {
   return (
     <div className="App">
       <Routes history={history}>
         <Route path="/" element={<Home />} />
-        <Route path="/Profile" element={<Profile />} />
+        <Route
+          path="/Profile"
+          element={
+            <AuthGuard>
+              <Profile />
+            </AuthGuard>
+          }
+        />
         <Route path="/registration" element={<Registration />} />
-        <Route path="login" element={<Login />} />
+        <Route
+          path="login"
+          element={
+            <GuestGuard>
+              <Login />
+            </GuestGuard>
+          }
+        />
         {/* <Route path="test" element={<Test />} />
               <Route path="/face" element={<Face/>}/>            */}
       </Routes>
