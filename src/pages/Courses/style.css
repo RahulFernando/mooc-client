@@ -1,0 +1,51 @@
+.full-page {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.full-page .row {
+  width: 100vw;
+  height: 100%;
+}
+
+.full-page .mdb-card {
+  display: flex;
+  border-radius: 0px;
+  flex-direction: column;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 39.78%;
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video-info {
+  padding: 1rem;
+}
+
+.video-actions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.video-actions .mdb-icon {
+  cursor: pointer;
+}
+
+.video-actions input[type="range"] {
+  width: 100px;
+  cursor: pointer;
+}
