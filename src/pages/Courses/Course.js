@@ -79,7 +79,7 @@ const Course = () => {
     <MDBContainer className="full-page">
       <MDBRow className="m-0">
         <MDBCol className="p-0">
-          <MDBCard style={{ background: "black" }}>
+          <MDBCard style={{ background: "black", borderRadius: "0px" }}>
             <div className="video-container">
               <video ref={videoRef} controls />;
             </div>
