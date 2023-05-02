@@ -1,7 +1,6 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useParams } from "react-router";
 import { useSearchParams } from "react-router-dom";
-import axios from "axios";
 
 import {
   MDBCard,
@@ -13,53 +12,41 @@ import {
 
 import "./style.css";
 
-let firstTime = true;
-
 const Course = () => {
   const videoRef = useRef();
   const params = useParams();
   const [searchParams] = useSearchParams();
 
-  const [chunks, setChunks] = useState([]);
   const [isMuted, setIsMuted] = useState(false);
 
-  const loadChunks = useCallback(
-    async (start = 0) => {
-      try {
-        const response = await axios.post(
-          `http://localhost:5000/videos/download/${params.id}`,
-          null,
-          {
-            responseType: "blob",
-            headers: {
-              "Content-Type": "video/mp4",
-              Range: start,
-            },
-          }
-        );
+  // const loadChunks = useCallback(
+  //   async (start = 0) => {
+  //     try {
+  //       const response = await axios.post(
+  //         `http://localhost:5000/videos/download/${params.id}`,
+  //         null,
+  //         {
+  //           responseType: "blob",
+  //           headers: {
+  //             "Content-Type": "video/mp4",
+  //             Range: start,
+  //           },
+  //         }
+  //       );
 
-        setChunks((prev) => [...prev, response.data]);
-        const range = response.headers["content-range"];
-        const totalSize = range.split("/")[1];
-        const endByte = range.split("-")[1].split("/")[0];
+  //       setChunks((prev) => [...prev, response.data]);
+  //       const range = response.headers["content-range"];
+  //       const totalSize = range.split("/")[1];
+  //       const endByte = range.split("-")[1].split("/")[0];
 
-        if (Number(endByte) !== totalSize - 1) await loadChunks(endByte);
-      } catch (error) {}
-    },
-    [params.id]
-  );
-
-  useEffect(() => {
-    if (firstTime) {
-      loadChunks();
-      firstTime = false;
-    }
-  }, [loadChunks]);
+  //       if (Number(endByte) !== totalSize - 1) await loadChunks(endByte);
+  //     } catch (error) {}
+  //   },
+  //   [params.id]
+  // );
 
   const playHandler = async () => {
     if (videoRef.current.paused) {
-      const blob = new Blob(chunks, { type: "video/mp4" });
-      videoRef.current.src = URL.createObjectURL(blob);
       videoRef.current.play();
     } else {
       videoRef.current.pause();
@@ -81,7 +68,12 @@ const Course = () => {
         <MDBCol className="p-0">
           <MDBCard style={{ background: "black", borderRadius: "0px" }}>
             <div className="video-container">
-              <video ref={videoRef} controls />;
+              <video ref={videoRef} controls>
+                <source
+                  src={`http://localhost:5000/videos/download/${params.id}`}
+                  type="video/mp4"
+                ></source>
+              </video>
             </div>
             <div className="video-info">
               <h5>{searchParams.get("tite")}</h5>
