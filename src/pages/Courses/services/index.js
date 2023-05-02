@@ -1,9 +1,4 @@
 import axios from "../../../api/axios";
 
-export const postDownload = async ({ startByte }) =>
-  await axios.post("/videos/download/1", null, {
-    headers: {
-      "Content-Type": "video/mp4",
-      Range: `bytes=${startByte}-`,
-    },
-  });
+export const postRate = async (payload) =>
+  await axios.post("/videos/rate", payload);
