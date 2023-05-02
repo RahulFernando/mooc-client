@@ -14,7 +14,7 @@ const CourseList = ({ courses = [] }) => {
           <MDBRow key={index}>
             {getCourseList(index + 1).map((course) => (
               <MDBCol key={course.id} lg={4} xs={12}>
-                <Course id={course.id} name={course.name} />
+                <Course id={course.id} name={course.name} src={course.thumb} />
               </MDBCol>
             ))}
           </MDBRow>
@@ -23,7 +23,7 @@ const CourseList = ({ courses = [] }) => {
         <MDBRow>
           {getCourseList().map((course) => (
             <MDBCol key={course.id} lg={4} xs={12}>
-              <Course id={course.id} name={course.name} />
+              <Course id={course.id} name={course.name} src={course.thumb} />
             </MDBCol>
           ))}
         </MDBRow>

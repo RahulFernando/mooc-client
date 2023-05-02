@@ -3,6 +3,14 @@ import CourseList from "./CourseList";
 import "./homeComp.css";
 
 export default function ({ isLoading, courses }) {
+  const getPopularCourses = () => {
+    const java = courses["Java"]?.slice(0, 2);
+    const javaScript = courses["JavaScript"]?.slice(0, 2);
+    const python = courses["Python"]?.slice(0, 2);
+
+    return [...java, ...javaScript, ...python];
+  };
+
   return (
     <>
       <div class="slider_area ">
@@ -96,7 +104,7 @@ export default function ({ isLoading, courses }) {
                 </div>
               </div>
             </div>
-            {!isLoading && <CourseList courses={courses} />}
+            {!isLoading && <CourseList courses={getPopularCourses()} />}
             {isLoading && <p>Loading...</p>}
             <div class="row">
               <div class="col-xl-12">
