@@ -52,9 +52,16 @@ export default function NavBar() {
                 </li>
               )}
               {isAuthenticated && <li onClick={onSignout}>Signout</li>}
-              <li>
-                <a href="./registration">Signup</a>
-              </li>
+              {!isAuthenticated && (
+                <li>
+                  <a href="./registration">Signup</a>
+                </li>
+              )}
+              {isAuthenticated && (
+                <li>
+                  <a href="./Profile">Profile</a>
+                </li>
+              )}
             </ul>
           </div>
         </nav>
