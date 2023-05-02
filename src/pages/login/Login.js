@@ -108,7 +108,7 @@ const Login = () => {
 
                         <MDBInput
                           wrapperClass="mb-4"
-                          label="Email address"
+                          label="Username"
                           type="text"
                           id="username"
                           ref={userRef}
